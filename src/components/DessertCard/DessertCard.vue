@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DessertImage,{ImageObjType} from "@/components/DessertCard/DessertImage.vue";
+import {ImageObjType} from "@/components/DessertCard/DessertImage.vue";
 import DessertImageNButton from "@/components/DessertCard/DessertImageNButton.vue";
 
 export type DessertCardProps= {
