@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+   
+@layer components {
+   /* texts */
+   .dessert_title {
+    @apply font-redHat font-[700] text-[1.9rem] text-Rose-900
+   }
+   .dessert_name {
+    @apply font-redHat font-[600] text-[1rem] text-Rose-900
+   }
+   .dessert_category {
+    @apply font-redHat font-[400] text-[.9rem] text-Rose-500
+   }
+   .dessert_price {
+    @apply font-redHat font-[600] text-[1rem] text-Red
+   }
+   
+   /* images */
+   .dessert_image{
+      @apply w-[100%] h-[auto] aspect-square
+   }
+   /* cards */
+
+
+   /* containers */
+   .main_container {
+      @apply w-[1440px] bg-Rose-100 flex justify-center gap-[2.5rem] mx-auto mt-[2rem] pb-[3rem]  }
+   
+   .dessert_container{
+      @apply w-fit grid grid-cols-3 gap-[1.4rem]
+   }
+
+   .image_container{
+      @apply w-[250px] h-[250px] rounded-lg overflow-hidden
+   }
+}    
