@@ -22,11 +22,11 @@ export type ImageObjType = {
                 <source media="(min-width: 750px)" :srcset="image_src_obj.tablet">
                 <source media="(min-width: 375px)" :srcset="image_src_obj.mobile">
 
-                <img :src="image_src_obj.desktop" alt="dessert image">
+                <img class="dessert_image" :src="image_src_obj.desktop" alt="dessert image">
             </picture>
         </div>
         <div v-else>
-            <img :src="image_src_obj.thumbnail" alt="dessert thumbnail image"/>
+            <img class="dessert_image" :src="image_src_obj.thumbnail" alt="dessert thumbnail image"/>
         </div>
     </div>
 </template>

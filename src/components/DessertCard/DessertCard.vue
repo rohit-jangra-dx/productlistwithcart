@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import DessertImage,{ImageObjType} from "@/components/DessertCard/DessertImage.vue";
+import DessertImageNButton from "@/components/DessertCard/DessertImageNButton.vue";
 
-const props = defineProps<{
+export type DessertCardProps= {
     name: string
     category: string
     price: number
     image_src_obj: ImageObjType 
-}>()
+}
+const props = defineProps<DessertCardProps>()
 
 </script>
 
 <template>
-    <div class="flex flex-col items-start gap-[1.7rem]">
-        <DessertImage :use_case="'profile'" :image_src_obj="image_src_obj"/>
+    <div class="dessert_card">
+        <DessertImageNButton v-bind="{...props}"/>
         <div>
             <p class="dessert_category">
                 {{ props.category }}
@@ -24,6 +26,5 @@ const props = defineProps<{
                 {{"$" + props.price.toFixed(2) }}
             </p>
         </div>
-    
     </div>
 </template>

@@ -18,13 +18,23 @@
    .dessert_price {
     @apply font-redHat font-[600] text-[1rem] text-Red
    }
+   .cart_button{
+      @apply font-redHat font-[600] text-[1rem] text-Rose-900
+   }
    
    /* images */
    .dessert_image{
       @apply w-[100%] h-[auto] aspect-square
    }
    /* cards */
+   .dessert_card{
+      @apply flex flex-col items-start gap-[1.7rem]
+   }
 
+   /* buttons */
+   .add_dessert_to_cart_button{
+      @apply w-max bg-Rose-50 absolute bottom-[0] left-[50%] translate-x-[-50%] translate-y-[50%] rounded-full border-Rose-400 border-[1px]
+   }
 
    /* containers */
    .main_container {
