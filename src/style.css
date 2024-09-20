@@ -47,4 +47,13 @@
    .image_container{
       @apply w-[250px] h-[250px] rounded-lg overflow-hidden
    }
+
+   .dessert_image_button_container_passive{
+      @apply rounded-lg relative border-transparent border-[2px]
+   }
+
+   .dessert_image_button_container_active{
+      @apply rounded-lg relative border-Red border-[2px]
+   }
+   
 }    

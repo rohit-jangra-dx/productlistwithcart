@@ -31,7 +31,7 @@ class CartStore{
         return this._totalAmount
     }
 
-    private findItemIndex(name: string, price: number): number {
+    findItemIndex(name: string, price: number): number {
         return  this.items.findIndex( item => item.name == name && item.pricePerItem == price )
     }
 
