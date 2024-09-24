@@ -8,7 +8,6 @@ const data = ref<any>(null)
 onMounted(async ()=> {
   const response = await fetch('/assets/data.json')
   data.value = await response.json()
-  console.log(data)
 })
 
 

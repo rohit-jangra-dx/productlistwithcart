@@ -21,7 +21,12 @@
    .cart_button{
       @apply font-redHat font-[600] text-[1rem] text-Rose-900
    }
-   
+   .cart_title{
+      @apply font-redHat font-[700] text-[1.3rem] text-Red
+   }
+   .cart_price{
+      @apply font-redHat font-[700] text-[1.3rem] text-Rose-900
+   }
    /* images */
    .dessert_image{
       @apply w-[100%] h-[auto] aspect-square
@@ -32,6 +37,9 @@
    }
 
    /* buttons */
+   .confirm_order_button{
+      @apply w-full py-[.6rem] flex justify-center items-center rounded-full bg-Red hover:bg-red-800
+   }
    .add_dessert_to_cart_button{
       @apply w-max bg-Rose-50 absolute bottom-[0] left-[50%] translate-x-[-50%] translate-y-[50%] rounded-full border-Rose-400 border-[1px]
    }

@@ -1,33 +1,36 @@
 <script setup lang="ts">
-import DessertImage from '@/components/DessertCard/DessertImage.vue';
+import DessertImage, { ImageObjType } from '@/components/DessertCard/DessertImage.vue';
 import AddDessertToCart from '@/components/Buttons/AddDessertToCart.vue';
-import { DessertCardProps } from './DessertCard.vue';
-import { cart, DessertItem } from '@/store/cartStore';
 import { computed } from 'vue';
 
-const props = defineProps<DessertCardProps>()
+type DessertImageNButtonProps = {
+    current_item_quantity: () => number
+    increment: () => void
+    decrement: () => void
+    image_src_obj: ImageObjType
+}
+
+const {increment,decrement, current_item_quantity} = defineProps<DessertImageNButtonProps>()
 
 const handleClick = ()=>{
     //u can add only one item by click the card
-    
-    const item: DessertItem = {
-        name: props.name,
-        pricePerItem: props.price,
-        quantity: 1
+    if( current_item_quantity() > 0 ) {
+        return
+    } else {
+        increment()
     }
-    cart.addItem(item)
 }
-
-// setting styles based on the
+ 
 const computedStyles = computed(()=>{
-    return cart.findItemIndex(props.name,props.price) === -1 ? "dessert_image_button_container_passive" : "dessert_image_button_container_active"
+    return current_item_quantity() === 0 ? "dessert_image_button_container_passive" : "dessert_image_button_container_active"
 })
+
 </script>
 
 
 <template>
     <div :class="computedStyles" @click="handleClick">
         <DessertImage :image_src_obj="image_src_obj" :use_case="'profile'"/>
-        <AddDessertToCart/>
+        <AddDessertToCart :quantity_count="current_item_quantity()" :increment="increment" :decrement="decrement"/>
     </div>
 </template>

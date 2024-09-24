@@ -1,23 +1,23 @@
 import { reactive } from "vue";
 
 // when adding dessert to cart
-export type DessertItem ={
+export type DessertItem = {
     name: string
     quantity: number
     pricePerItem: number
 }
 
 // internal to cart class
-type DessertItemInfo = DessertItem & {
+export type DessertItemInfo = DessertItem & {
     totalPrice: number
 }
 
-class CartStore{
+class CartStore {
     items: Array<DessertItemInfo>
     private _len: number
     private _totalAmount: number
-    
-    constructor(items: Array<DessertItemInfo> = []){
+
+    constructor(items: Array<DessertItemInfo> = []) {
         this.items = items
         this._len = 0
         this._totalAmount = 0
@@ -32,46 +32,42 @@ class CartStore{
     }
 
     findItemIndex(name: string, price: number): number {
-        return  this.items.findIndex( item => item.name == name && item.pricePerItem == price )
+        return this.items.findIndex(item => item.name == name && item.pricePerItem == price)
     }
 
-    addItem(item: DessertItem){
-            const totalPrice = item.pricePerItem * item.quantity
-            this.items.push({...item, totalPrice: totalPrice})
+    addItem(item: DessertItem) {
+        const totalPrice = item.pricePerItem * item.quantity
+        this.items.push({ ...item, totalPrice: totalPrice })
 
-            this._len += item.quantity
-            this._totalAmount += totalPrice
+        this._len += item.quantity
+        this._totalAmount += totalPrice
     }
 
-    updateItem(item: DessertItem, name: string, price: number){
-            const itemIndex = this.findItemIndex(name,price)
-    
-            if (itemIndex === -1){
-                throw new Error("No item found matching the keys in cart")
-            }
-            
-            const oldItem = this.items[itemIndex]
-            const newTotalPrice = item.pricePerItem * item.quantity
+    updateItem(item: DessertItem, name: string, price: number) {
+        const itemIndex = this.findItemIndex(name, price)
+        if (itemIndex === -1) {
+            throw new Error("No item found matching the keys in cart")
+        }
 
-            this.items[itemIndex] = {...item, totalPrice: newTotalPrice}
+        const oldItem = this.items[itemIndex]
+        const newTotalPrice = item.pricePerItem * item.quantity
 
-            this._len += item.quantity - oldItem.quantity
-            this._totalAmount += newTotalPrice - oldItem.totalPrice
+        this.items[itemIndex] = { ...item, totalPrice: newTotalPrice }
+
+        this._len += item.quantity - oldItem.quantity
+        this._totalAmount += newTotalPrice - oldItem.totalPrice
     }
 
 
-    deleteItem(name: string, price: number){
-            const itemIndex = this.findItemIndex(name, price)
+    deleteItem(name: string, price: number) {
+        const itemIndex = this.findItemIndex(name, price)
+        if (itemIndex === -1) {
+            throw new Error("No item found matching the keys in cart")
+        }
 
-            if (itemIndex === -1){
-                throw new Error("No item found matching the keys in cart")
-            }
-   
-
-            const [removedItem] = this.items.splice(itemIndex,1)
-
-                this._len -= removedItem.quantity
-                this._totalAmount -= removedItem.totalPrice
+        const [removedItem] = this.items.splice(itemIndex, 1)
+        this._len -= removedItem.quantity
+        this._totalAmount -= removedItem.totalPrice
     }
 }
 
