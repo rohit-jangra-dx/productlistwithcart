@@ -18,7 +18,7 @@ class DessertStore{
 
     async fetchData() {
         try {
-            const response = await fetch('/assets/data.json')
+            const response = await fetch('/productlistwithcart/assets/data.json')
             const data: Array<ServerDataType> = await response.json()
 
             this.data = data
