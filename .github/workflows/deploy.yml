@@ -21,6 +21,13 @@ jobs:
 
       - name: Build the project
         run: bun run build
+
+      - name: Check if dist directory exists
+        run: |
+          if [ ! -d "./dist"]; then
+            echo "Build output directory does not exist. Exiting."
+            exit 1
+          fi
         
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
