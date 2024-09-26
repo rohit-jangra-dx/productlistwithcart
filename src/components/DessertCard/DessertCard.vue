@@ -2,11 +2,7 @@
 import {ImageObjType} from "@/components/DessertCard/DessertImage.vue";
 import DessertImageNButton from "@/components/DessertCard/DessertImageNButton.vue";
 import { cart, DessertItem } from "@/store/cartStore";
-import { watch } from "vue";
 
-watch(()=> cart.items, (newItems, oldItems)=> {
-    console.log("Items changed from :", oldItems, "to: ",newItems)
-})
 
 export type DessertCard= {
     name: string

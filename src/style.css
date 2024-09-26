@@ -24,13 +24,25 @@
    .cart_title{
       @apply font-redHat font-[700] text-[1.3rem] text-Red
    }
-   .cart_price{
+   .cart_total_price{
       @apply font-redHat font-[700] text-[1.3rem] text-Rose-900
    }
+   .cart_item_quantity{
+      @apply dessert_price mr-[10px]
+   }
+
+   .cart_item_total_amount{
+      @apply dessert_category font-semibold
+   }
+
    /* images */
    .dessert_image{
-      @apply w-[100%] h-[auto] aspect-square
+      @apply w-[100%] h-[auto] aspect-auto rounded-lg
    }
+   .item_increase_decrease_img{
+      @apply w-[10px] h-[10px]
+   }
+
    /* cards */
    .dessert_card{
       @apply flex flex-col items-start gap-[1.7rem]
@@ -38,22 +50,25 @@
 
    /* buttons */
    .confirm_order_button{
-      @apply w-full py-[.6rem] flex justify-center items-center rounded-full bg-Red hover:bg-red-800
+      @apply w-full py-[.6rem] flex justify-center items-center rounded-full bg-Red hover:bg-red-800 text-Rose-50
    }
    .add_dessert_to_cart_button{
       @apply w-max bg-Rose-50 absolute bottom-[0] left-[50%] translate-x-[-50%] translate-y-[50%] rounded-full border-Rose-400 border-[1px]
    }
+   .borderd_round_button{
+      @apply p-[3px_3px] h-fit rounded-full border-[1px] border-Rose-50
+   }
 
    /* containers */
    .main_container {
-      @apply w-[1440px] bg-Rose-100 flex justify-center gap-[2.5rem] mx-auto mt-[2rem] pb-[3rem]  }
+      @apply w-[1440px] bg-Rose-100 flex justify-center items-start gap-[2.5rem] mx-auto mt-[5rem] pb-[3rem]  }
    
    .dessert_container{
       @apply w-fit grid grid-cols-3 gap-[1.4rem]
    }
 
    .image_container{
-      @apply w-[250px] h-[250px] rounded-lg overflow-hidden
+      @apply w-[200px] h-[200px] rounded-lg overflow-hidden
    }
 
    .dessert_image_button_container_passive{

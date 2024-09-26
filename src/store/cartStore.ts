@@ -69,6 +69,12 @@ class CartStore {
         this._len -= removedItem.quantity
         this._totalAmount -= removedItem.totalPrice
     }
+
+    resetCart(){
+        this.items.splice(0)
+        this._len = 0
+        this._totalAmount = 0
+    }
 }
 
 

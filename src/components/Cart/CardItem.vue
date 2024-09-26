@@ -18,9 +18,9 @@ const handleDelete = ()=>{
                 <p class="dessert_name">{{ name }}</p>
                 <!-- price_per_item, quantity and total price -->
                 <div class="flex items-center  gap-2">
-                    <p class="dessert_price mr-[3px]">{{ quantity }}x</p>
+                    <p class="cart_item_quantity">{{ quantity }}x</p>
                     <p class="dessert_category">{{"@"+pricePerItem.toFixed(2) }}</p>
-                    <p class="dessert_category font-semibold">{{"$"+totalPrice.toFixed(2) }}</p>
+                    <p class="cart_item_total_amount">{{"$"+totalPrice.toFixed(2) }}</p>
                 </div>
             </div>
         <!-- delete button -->

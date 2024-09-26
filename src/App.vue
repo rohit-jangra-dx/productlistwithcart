@@ -2,12 +2,14 @@
 import DessertCard from '@/components/DessertCard/DessertCard.vue';
 import Cart from './components/Cart/Cart.vue';
 import { onMounted, ref } from 'vue';
+import { dessertData } from './store/dessertStore';
 
 const data = ref<any>(null)
 
 onMounted(async ()=> {
-  const response = await fetch('/assets/data.json')
-  data.value = await response.json()
+   await dessertData.fetchData()  
+
+  data.value = dessertData.data
 })
 
 
@@ -28,7 +30,7 @@ onMounted(async ()=> {
   </div>
   </div>
 
-  <Cart :total_items="2"/>
+  <Cart/> 
 </div>
 <div v-else>Loading...</div>
 </template>

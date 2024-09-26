@@ -13,10 +13,14 @@ defineProps<{
             <img src="/assets/images/icon-add-to-cart.svg"/>
             <p class="cart_button">Add to Cart</p>
         </div>
-        <div v-else class="w-[163px] flex justify-between  p-[.5rem_1.5rem] bg-Red">
-            <img role="button" @click.stop="increment" src="/assets/images/icon-increment-quantity.svg" alt="increase quantity button"/>
-            <p class="cart_button">{{ quantity_count }}</p>
-            <img role="button" @click.stop="decrement" src="/assets/images/icon-decrement-quantity.svg" />
+        <div v-else class="w-[163px] flex justify-between items-center  p-[.5rem_.7rem] bg-Red">
+            <button class="borderd_round_button" @click.stop="increment">
+                <img class="item_increase_decrease_img"  src="/assets/images/icon-increment-quantity.svg" alt="increase quantity button"/>
+            </button>
+            <p class="cart_button text-Rose-50">{{ quantity_count }}</p>
+            <button class="borderd_round_button" @click.stop="decrement">
+                <img class="item_increase_decrease_img"  src="/assets/images/icon-decrement-quantity.svg" />
+            </button>
         </div>
     </button>
 </template>
