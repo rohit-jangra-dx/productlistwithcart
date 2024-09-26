@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/REPO_NAME/',
+  base: '/productlistwithcart/',
   plugins: [vue()],
   resolve: {
     alias: {
