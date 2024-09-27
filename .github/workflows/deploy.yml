@@ -4,13 +4,28 @@ on:
   push:
     branches:
       - master
+  
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url}}
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: ubuntu-latest
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Bun
@@ -22,16 +37,15 @@ jobs:
       - name: Build the project
         run: bun run build
 
-      - name: Check if dist directory exists
-        run: |
-          if [ ! -d "./dist"]; then
-            echo "Build output directory does not exist. Exiting."
-            exit 1
-          fi
-        
-      - name: Deploy to Github Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN}}
-          publish_dir: ./dist
-          publish_branch: gh-pages
+          path: './dist'
+
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v4  
+      
