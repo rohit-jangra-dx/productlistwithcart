@@ -48,6 +48,3 @@ jobs:
       - name: Deploy to Github Pages
         id: deployment
         uses: actions/deploy-pages@v4  
-        with:
-          enablement: true
-      

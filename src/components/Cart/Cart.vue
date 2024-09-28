@@ -17,7 +17,7 @@ const closeModal = () => {
 </script>
 
 <template>
-    <div class=" bg-white w-[350px] h-fit p-[1.5rem] rounded-xl">
+    <div class=" bg-white w-full tablet:w-[300px] desktop:w-[350px] h-fit p-[1.5rem] rounded-xl">
         <p class="cart_title">Your Cart ({{ cart.len}})</p>
         
         <div v-if="cart.len" class="flex flex-col gap-[1.5rem]">

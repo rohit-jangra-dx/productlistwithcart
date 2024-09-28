@@ -7,7 +7,7 @@
 @layer components {
    /* texts */
    .dessert_title {
-    @apply font-redHat font-[700] text-[1.9rem] text-Rose-900
+    @apply font-redHat font-[700] text-5xl tablet:text-[1.9rem] text-Rose-900
    }
    .dessert_name {
     @apply font-redHat font-[600] text-[1rem] text-Rose-900
@@ -61,14 +61,16 @@
 
    /* containers */
    .main_container {
-      @apply w-[1440px] bg-Rose-100 flex justify-center items-start gap-[2.5rem] mx-auto mt-[5rem] pb-[3rem]  }
+      @apply  bg-Rose-100 flex flex-col tablet:flex-row justify-center items-start gap-[2.5rem] mx-auto mobile:mt-[2rem] tablet:mt-[5rem] pb-[3rem] px-[1rem] tablet:px-0
+
+   }
    
    .dessert_container{
-      @apply w-fit grid grid-cols-3 gap-[1.4rem]
+      @apply tablet:w-fit  grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-[1.4rem]
    }
 
    .image_container{
-      @apply w-[200px] h-[200px] rounded-lg overflow-hidden
+      @apply tablet:w-[200px] h-auto rounded-lg overflow-hidden
    }
 
    .dessert_image_button_container_passive{

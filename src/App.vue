@@ -17,7 +17,7 @@ onMounted(async ()=> {
 
 <template>
 <div class="main_container" v-if="data">
-  <div class="flex flex-col gap-[1rem]">
+  <div class="w-full tablet:w-fit flex flex-col gap-[1rem]">
     <p class="dessert_title">Desserts</p>
     <div class="dessert_container">
       <DessertCard 
